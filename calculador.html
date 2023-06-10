@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <style>
+    .calculator {
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    #display {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+    }
+
+    button {
+      width: 100%;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('+')">+</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('-')">-</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="appendToDisplay('*')">*</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="appendToDisplay('/')">/</button>
+      <button onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+
+  <script>
+    // Función para agregar los valores al display
+    function appendToDisplay(value) {
+      // Obtener el elemento del display
+      var display = document.getElementById('display');
+      
+      // Agregar el valor al final del contenido actual del display
+      display.value += value;
+    }
+
+    // Función para realizar el cálculo
+    function calculate() {
+      // Obtener el elemento del display
+      var display = document.getElementById('display');
+      
+      // Obtener el resultado evaluando la expresión matemática en el display
+      var result = eval(display.value);
+      
+      // Mostrar el resultado en el display
+      display.value = result;
+    }
+
+    // Función para limpiar el display
+    function clearDisplay() {
+      // Obtener el elemento del display
+      var display = document.getElementById('display');
+      
+      // Limpiar el contenido del display
+      display.value = '';
+    }
+  </script>
+</body>
+</html>
